@@ -7,7 +7,7 @@ import { StatusBar } from "react-native";
 
 import React from "react";
 
-import { AppRoutes } from "./src/routes/app.routes";
+import { Routes } from "./src/routes";
 
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -35,18 +35,18 @@ export default function App() {
     Poppins_700Bold,
   });
 
-  if (!fontsLoaded) {
+  const { userStoragedLoading } = useAuth();
+
+  if (!fontsLoaded || userStoragedLoading) {
     return <AppLoading />;
   }
 
   return (
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <StatusBar barStyle="light-content" />
-        <AuthProvider>
-          <SignIn />
-        </AuthProvider>
-      </NavigationContainer>
+      <StatusBar barStyle="light-content" />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider>
   );
 }
