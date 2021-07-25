@@ -1,0 +1,2 @@
+id-client = 940734496385-68fkmibujg1j4krfa91i7g89p07ved12.apps.googleusercontent.com
+secret-key = k3UqJL6At5xwl_xovA5R0Xbl
